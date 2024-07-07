@@ -1,6 +1,8 @@
 # Node의 import 방식에 따른 번들 사이즈 비교
 
-## 결과
+이 리포지토리는 [`Ramda`](https://ramdajs.com/) 라이브러리를 네임스페이스(namespace) 방식으로 import하는 경우와, 하나의 메서드(`multiply`)만 import 했을 때를 비교해서 번들 사이즈와 로직의 차이를 살펴보기 위해 생성했습니다.
+
+## 번들 사이즈
 
 namespace import 방식이 named import 방식에 비해 약 6.95배 크기
 
@@ -12,17 +14,19 @@ $ node dist/index.js
 ./dist/index-named-import.js            172
 ```
 
-성능 영향은?
+## 성능 영향은?
 
-named 방식은 아래처럼 `Ramda`를 가져온다.
+트랜스파일한 자바스크립트 코드를 살펴보면, named 방식에서는 아래처럼 `Ramda`를 가져온다.
 
 ```js
+// ./dist/index-namespace-import.js
 const ramda_1 = require("ramda");
 ```
 
 반면 namespace 방식은 아래처럼 가져온다.
 
 ```js
+// ./dist/index-named-import.js
 const R = __importStar(require("ramda"));
 ```
 
