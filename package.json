@@ -1,0 +1,18 @@
+{
+  "name": "example-import",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p . --outDir dist",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/ramda": "^0.30.1",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "ramda": "^0.30.1"
+  }
+}
